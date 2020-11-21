@@ -1,0 +1,33 @@
+@startuml
+
+object Game {
+	+Roll(pins int) void
+	+Score() int
+}
+
+object Frame {
+	+Score() int
+}
+
+object FrameTenth {
+	+Score() int
+}
+
+FrameTenth --|> Frame
+Game --> Frame:10
+
+object Roll {
+	+Pins() int
+}
+
+Frame --> Roll:1..2
+FrameTenth --> Roll:1..2
+
+Frame-->Frame: Nextframe\n(Spare, Strike)
+note left of Frame #aqua
+We need a reference to the last frame
+to calculate spare and strike scores
+end note
+
+
+@enduml
