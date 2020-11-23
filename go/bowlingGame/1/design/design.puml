@@ -1,0 +1,39 @@
+@startuml
+Object Game {
+	+Roll(pins int)
+	+Score() int
+}
+
+Object Frame {
+	+Score() int
+}
+
+Game --> Frame:10
+
+Object Roll {
+	-Pins int
+}
+
+Frame --> Roll:1..2
+
+Frame --> Frame: lastframe
+
+note left of Frame 
+	Need to know the last frame in 
+	order to calculate the score
+end note
+
+Object FrameTenth {
+	+Score() int
+}
+
+note top of FrameTenth
+	A special frame that might require 
+	3 rolls depending on spare or strike
+end note
+
+FrameTenth --|> Frame
+
+FrameTenth --> Roll: 1..3
+
+@enduml
