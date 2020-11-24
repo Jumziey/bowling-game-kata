@@ -1,33 +1,41 @@
 @startuml
+header
+Bowling Game
+endheader
 
 object Game {
-	+Roll(pins int) void
+	+Roll(pins int)
 	+Score() int
 }
+
+note top of Game
+	The requirement
+end note
 
 object Frame {
 	+Score() int
 }
+
+Game --> Frame:10
+
+object Roll {
+	-Pins int
+}
+
+Frame --> Roll:1..2
+
+Frame --> Frame:nextframe
+
+note right of Frame
+	Frame score for spares and 
+	strikes uses the next frame
+end note
 
 object FrameTenth {
 	+Score() int
 }
 
 FrameTenth --|> Frame
-Game --> Frame:10
-
-object Roll {
-	+Pins() int
-}
-
-Frame --> Roll:1..2
-FrameTenth --> Roll:1..2
-
-Frame-->Frame: Nextframe\n(Spare, Strike)
-note left of Frame #aqua
-We need a reference to the last frame
-to calculate spare and strike scores
-end note
-
+FrameTenth --> Roll:1..3
 
 @enduml
