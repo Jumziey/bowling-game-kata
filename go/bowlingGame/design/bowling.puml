@@ -4,8 +4,8 @@ Bowling Game
 endheader
 
 object Game {
-	+Roll(pins int)
-	+Score() int
+	+Roll(pins uint)
+	+Score() uint
 }
 
 note top of Game
@@ -13,13 +13,13 @@ note top of Game
 end note
 
 object Frame {
-	+Score() int
+	+Score() uint
 }
 
 Game --> Frame:10
 
 object Roll {
-	-Pins int
+	-Pins uint
 }
 
 Frame --> Roll:1..2
@@ -32,7 +32,7 @@ note right of Frame
 end note
 
 object FrameTenth {
-	+Score() int
+	+Score() uint
 }
 
 FrameTenth --|> Frame
