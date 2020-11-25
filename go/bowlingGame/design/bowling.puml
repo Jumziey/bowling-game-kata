@@ -7,7 +7,6 @@ object Game {
 	+Roll(pins uint)
 	+Score() uint
 }
-
 note top of Game
 	The requirement
 end note
