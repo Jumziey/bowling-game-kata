@@ -31,7 +31,6 @@ note left of Frame
 end note
 
 object FrameTenth {
-	+Score() uint
 }
 
 FrameTenth --|> Frame
