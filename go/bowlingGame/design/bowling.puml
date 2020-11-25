@@ -23,11 +23,11 @@ object Roll {
 
 Frame --> Roll:1..2
 
-Frame --> Frame:nextframe
-
-note right of Frame
-	Frame score for spares and 
-	strikes uses the next frame
+Frame --> Frame:NextFrame
+note left of Frame
+	Score for spares
+	and strikes depends on
+	the next frame.
 end note
 
 object FrameTenth {
